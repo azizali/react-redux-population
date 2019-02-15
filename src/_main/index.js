@@ -1,25 +1,24 @@
 import './index.css';
-import React from 'react';
+import React, { useState } from 'react';
 import { render } from 'react-dom';
 
+import Year from '../Year/Year';
+import Countries from '../Countries/Countries';
+
 function App({ people = 0 }) {
+	const [ year, setYear ] = useState(2007);
 	return (
 		<div className="container mt-5 mx-auto">
 			<div className="bg-white border border-dark p-5 rounded">
 				<h1 className="text-center">Population:</h1>
 				<form className="row">
-					<div className="col">
-						<label htmlFor="country">Select Country</label>
-						<select className="custom-select" id="country">
-							<option value="" />
-						</select>
-					</div>
-					<div className="col">
-						<label htmlFor="year">Select Year</label>
-						<select className="custom-select" id="year">
-							<option value="" />
-						</select>
-					</div>
+					<Countries />
+					<Year
+						selected={year}
+						changeCb={(e) => {
+							setYear(e.target.value);
+						}}
+					/>
 					<div className="col">
 						<label htmlFor="minage">Select Min Age</label>
 						<select className="custom-select" id="minage">
