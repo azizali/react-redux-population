@@ -9,6 +9,23 @@ export default class Countries extends React.Component {
 
 		this.changeCountry = this.changeCountry.bind(this);
 	}
+	componentWillMount() {
+		const url = 'http://api.population.io:80/1.0/countries';
+		fetch(url, {
+			headers: {
+				accept: 'application/json; charset=utf=8'
+			}
+		})
+			.then((res) => res.json())
+			.then((json) => {
+				this.setState({
+					countries: json.countries
+				});
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}
 	changeCountry(e) {
 		this.setState({
 			selected: e.target.value
