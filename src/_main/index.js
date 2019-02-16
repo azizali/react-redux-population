@@ -7,12 +7,17 @@ import Countries from '../Countries/Countries';
 
 function App({ people = 0 }) {
 	const [ year, setYear ] = useState(2007);
+	const [ country, setCountry ] = useState('');
 	return (
 		<div className="container mt-5 mx-auto">
 			<div className="bg-white border border-dark p-5 rounded">
 				<h1 className="text-center">Population:</h1>
 				<form className="row">
-					<Countries />
+					<Countries
+						changeCb={(country) => {
+							setCountry(country);
+						}}
+					/>
 					<Year
 						selected={year}
 						changeCb={(e) => {
