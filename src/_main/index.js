@@ -77,24 +77,6 @@ class App extends React.Component {
 								this.changeInputs({ year: e.target.value });
 							}}
 						/>
-						<div className="col">
-							<label htmlFor="minage">Select Min Age</label>
-							<select className="custom-select" id="minage">
-								<option value="" />
-							</select>
-						</div>
-						<div className="col">
-							<label htmlFor="maxage">Select Max Age</label>
-							<select className="custom-select" id="maxage">
-								<option value="" />
-							</select>
-						</div>
-						<div className="col">
-							<label htmlFor="gender">Select Gender</label>
-							<select className="custom-select" id="gender">
-								<option value="" />
-							</select>
-						</div>
 					</form>
 					<div className="alert text-center h2">
 						{isLoading ? (
