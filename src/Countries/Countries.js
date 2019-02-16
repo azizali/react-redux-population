@@ -30,6 +30,7 @@ export default class Countries extends React.Component {
 		this.setState({
 			selected: e.target.value
 		});
+		this.props.changeCb(e.target.value);
 	}
 	render() {
 		const { countries, selected } = this.state;
